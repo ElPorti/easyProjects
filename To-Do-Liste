@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Liste</title>
+</head>
+<body>
+
+    <h1>Meine To-Do Liste</h1>
+    
+    <form onsubmit="return false;">
+        <label for="newTask">Neue Aufgabe:</label>
+        <input type="text" name="newTask" id="newTask">
+        <button type="submit"   onclick="addTask()">Hinzufügen</button>
+    </form>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+                    var newTaskValue = document.getElementById("newTask").value;
+            if (newTaskValue.trim() !== "") {
+                    var newListItem = document.createElement("li");
+                newListItem.innerHTML = '<input type="checkbox">' + newTaskValue;
+                document.getElementById("taskList").appendChild(newListItem);
+                document.getElementById("newTask").value = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
